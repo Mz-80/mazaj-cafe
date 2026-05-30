@@ -779,16 +779,34 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:var(--cream);color:var(
 <script>
 // ======== DATA ========
 const DEFAULT_PRODUCTS = [
-  {id:1,name:'إسبريسو',desc:'قهوة إيطالية أصيلة',price:12,cat:'مشروبات ساخنة',temp:'hot',icon:'☕',image:'',available:true},
-  {id:2,name:'لاتيه',desc:'إسبريسو مع الحليب المبخر',price:18,cat:'مشروبات ساخنة',temp:'both',icon:'🥛',image:'',available:true},
-  {id:3,name:'كابتشينو',desc:'قهوة بالرغوة الكثيفة',price:18,cat:'مشروبات ساخنة',temp:'both',icon:'☕',image:'',available:true},
-  {id:4,name:'قهوة مثلجة',desc:'إسبريسو بارد مع الثلج',price:20,cat:'مشروبات باردة',temp:'cold',icon:'🧋',image:'',available:true},
-  {id:5,name:'موكا',desc:'قهوة بالشوكولاتة الداكنة',price:22,cat:'مشروبات ساخنة',temp:'both',icon:'🍫',image:'',available:true},
-  {id:6,name:'شاي كرك',desc:'شاي هندي بالهيل والزعفران',price:10,cat:'مشروبات ساخنة',temp:'hot',icon:'🫖',image:'',available:true},
-  {id:7,name:'فرابيه',desc:'مشروب مثلج كريمي',price:25,cat:'مشروبات باردة',temp:'cold',icon:'🥤',image:'',available:true},
-  {id:8,name:'عصير برتقال',desc:'طازج ومنعش 100%',price:15,cat:'عصائر',temp:'none',icon:'🍊',image:'',available:true},
-  {id:9,name:'كروسان',desc:'معجنات فرنسية هشة',price:14,cat:'مأكولات',temp:'none',icon:'🥐',image:'',available:true},
-  {id:10,name:'تشيز كيك',desc:'حلى بارد بالتوت',price:22,cat:'حلويات',temp:'none',icon:'🍰',image:'',available:false},
+  // ── مشروبات ──
+  {id:1,  name:'V60',                  desc:'قهوة مختصة بالتقطير اليدوي',           price:22, cat:'قهوة مختصة',    temp:'both',  icon:'☕', available:true,
+   image:'https://images.unsplash.com/photo-1619109980753-cdf7d43068c1?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:2,  name:'كولد برو',             desc:'قهوة مقطّرة بارداً لـ 24 ساعة',        price:22, cat:'مشروبات باردة', temp:'cold',  icon:'🧊', available:true,
+   image:'https://images.unsplash.com/photo-1527156231393-7023794f363c?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:3,  name:'اسبريسو',              desc:'شوت قهوة مركّز وغني',                  price:14, cat:'مشروبات ساخنة', temp:'hot',   icon:'☕', available:true,
+   image:'https://images.unsplash.com/photo-1498241804937-a517467c0db6?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:4,  name:'كرتادو',               desc:'اسبريسو مع حليب منخفض الرغوة',         price:18, cat:'مشروبات ساخنة', temp:'hot',   icon:'☕', available:true,
+   image:'https://images.unsplash.com/photo-1487340769336-7deca833ffce?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:5,  name:'سبانش لاتيه',          desc:'لاتيه كريمي بالحليب المكثف',           price:22, cat:'مشروبات',       temp:'both',  icon:'🥛', available:true,
+   image:'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:6,  name:'كركديه',               desc:'مشروب الكركديه المنعش',                price:18, cat:'مشروبات باردة', temp:'cold',  icon:'🌺', available:true,
+   image:'https://images.unsplash.com/photo-1594136579292-d98588fe6429?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:7,  name:'ماتشا',                desc:'ماتشا ياباني أصلي مع الحليب',          price:22, cat:'مشروبات باردة', temp:'cold',  icon:'🍵', available:true,
+   image:'https://images.unsplash.com/photo-1560148196-df61132466ce?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:8,  name:'مويه بارد',            desc:'مياه معدنية مثلجة من الثلاجة',         price:5,  cat:'مشروبات',       temp:'cold',  icon:'💧', available:true,
+   image:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:9,  name:'مويه خارج الثلاجة',    desc:'مياه معدنية بدرجة حرارة الغرفة',       price:5,  cat:'مشروبات',       temp:'none',  icon:'💧', available:true,
+   image:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=400&fit=crop&crop=center&q=80'},
+  // ── حلويات ──
+  {id:10, name:'كيكة تمر',             desc:'كيك التمر الدافئ مع صوص التوفي',       price:22, cat:'حلويات',        temp:'none',  icon:'🎂', available:true,
+   image:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:11, name:'تراميسو',              desc:'حلى إيطالي كلاسيكي بنكهة القهوة',      price:25, cat:'حلويات',        temp:'none',  icon:'🍰', available:true,
+   image:'https://images.unsplash.com/photo-1746888151121-1002113ed286?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:12, name:'باستيان',              desc:'تشيز كيك باسك المحروق الكريمي',         price:25, cat:'حلويات',        temp:'none',  icon:'🍰', available:true,
+   image:'https://images.unsplash.com/photo-1598963259292-a9d3e008ef48?w=400&h=400&fit=crop&crop=center&q=80'},
+  {id:13, name:'تشيز كيك',             desc:'تشيز كيك كريمي بالتوت الطازج',          price:25, cat:'حلويات',        temp:'none',  icon:'🍰', available:true,
+   image:'https://images.unsplash.com/photo-1621955511667-e2c316e4575d?w=400&h=400&fit=crop&crop=center&q=80'},
 ];
 
 let db = {
